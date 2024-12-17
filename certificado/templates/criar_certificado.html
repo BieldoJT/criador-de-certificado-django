@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+        .certificado-container {
+            border: 10px solid #4caf50;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: #555;
+        }
+        .assinatura {
+            margin-top: 50px;
+            font-size: 1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificado-container">
+        <h1>Certificado de Conclusão</h1>
+        <p>
+            Certificamos que <strong>{{ aluno.nome_aluno }}</strong>,<br>
+            com e-mail <strong>{{ aluno.email }}</strong>, concluiu o curso<br>
+            <strong>{{ aluno.nome_curso }}</strong> com êxito.
+        </p>
+        <p>
+            O curso foi realizado no período de<br>
+            <strong>{{ aluno.data_inicio|date:"d/m/Y" }}</strong> a <strong>{{ aluno.data_conclusao|date:"d/m/Y" }}</strong>.
+        </p>
+        <div class="assinatura">
+            Emitido em: <strong>{{ criar_certificado.criacao_certificado|date:"d/m/Y" }}</strong><br>
+            ID do Certificado: <strong>{{ criar_certificado.id_certificado }}</strong>
+        </div>
+    </div>
+</body>
+</html>

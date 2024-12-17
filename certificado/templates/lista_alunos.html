@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Alunos</title>
+</head>
+<body>
+    <h1>Lista de Alunos</h1>
+    <table border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Curso</th>
+            <th>Data de Início</th>
+            <th>Data de Conclusão</th>
+            <th>Ações</th>
+        </tr>
+        {% for aluno in alunos %}
+        <tr>
+            <td>{{ aluno.nome_aluno }}</td>
+            <td>{{ aluno.email }}</td>
+            <td>{{ aluno.nome_curso }}</td>
+            <td>{{ aluno.data_inicio }}</td>
+            <td>{{ aluno.data_conclusao|default:"-" }}</td>
+            <td>
+                <a href="{% url 'atualizar_conclusao' aluno.id %}">Atualizar Conclusão</a>
+            </td>
+			<td>
+			<a href="{% url 'gerar_certificado' aluno.id %}">Gerar Certificado</a>
+			</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'adicionar_alunos' %}">Adicionar Aluno</a>
+</body>
+</html>
