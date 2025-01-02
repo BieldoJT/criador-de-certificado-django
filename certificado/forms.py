@@ -1,5 +1,5 @@
 from django import forms
-from .models import Alunos
+from .models import Alunos, CriarCertificado
 
 class AlunoForm(forms.ModelForm):
     class Meta:
@@ -8,3 +8,8 @@ class AlunoForm(forms.ModelForm):
         widgets = {
             'data_inicio': forms.DateInput(attrs={'type': 'date'}),
         }
+
+class ValidacaoForm(forms.ModelForm):
+	class Meta:
+		model = CriarCertificado
+		fields = ['id_certificado']
